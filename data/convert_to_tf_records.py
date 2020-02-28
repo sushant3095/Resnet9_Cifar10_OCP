@@ -39,12 +39,12 @@ def decode_tf_record(serialized_example):
     IMAGE_PIXELS = IMAGE_SIZE * IMAGE_SIZE * 3
 
     # 1. define a parser
-    features = tf.parse_single_example(
+    features = tf.io.parse_single_example(
         serialized_example,
         # Defaults are not specified since both keys are required.
         features={
-            'image': tf.FixedLenFeature([], tf.string),
-            'label': tf.FixedLenFeature([], tf.int64),
+            'image': tf.io.FixedLenFeature([], tf.string),
+            'label': tf.io.FixedLenFeature([], tf.int64),
         })
 
     # 2. Convert the data
@@ -66,12 +66,12 @@ def decode_test_tf_record(serialized_example):
     IMAGE_PIXELS = IMAGE_SIZE * IMAGE_SIZE * 3
 
     # 1. define a parser
-    features = tf.parse_single_example(
+    features = tf.io.parse_single_example(
         serialized_example,
         # Defaults are not specified since both keys are required.
         features={
-            'image': tf.FixedLenFeature([], tf.string),
-            'label': tf.FixedLenFeature([], tf.int64),
+            'image': tf.io.FixedLenFeature([], tf.string),
+            'label': tf.io.FixedLenFeature([], tf.int64),
         })
 
     # 2. Convert the data
